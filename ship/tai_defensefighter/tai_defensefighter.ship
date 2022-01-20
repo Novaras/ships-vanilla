@@ -1,11 +1,11 @@
 NewShipType = StartShipConfig()
 NewShipType.displayedName="$10010"
 NewShipType.sobDescription="$10011"
-NewShipType.maxhealth=getShipNum(NewShipType, "maxhealth", 135)   
+NewShipType.maxhealth=getShipNum(NewShipType, "maxhealth", 300)   
 NewShipType.regentime=0
 NewShipType.minRegenTime=0
-NewShipType.sideArmourDamage = getShipNum(NewShipType, "sideArmourDamage", 1.2)
-NewShipType.rearArmourDamage = getShipNum(NewShipType, "rearArmourDamage", 1.2)
+NewShipType.sideArmourDamage = getShipNum(NewShipType, "sideArmourDamage", 1.0)
+NewShipType.rearArmourDamage = getShipNum(NewShipType, "rearArmourDamage", 1.0)
 setTacticsMults(NewShipType, "MAXSPEED", 0.95, 1.10, 1.0)
 setTacticsMults(NewShipType, "ENGINEACCEL", 1.20, 0.80, 1.0)
 setTacticsMults(NewShipType, "ENGINEBRAKE", 1.0, 1.0, 1.0)
@@ -16,10 +16,11 @@ setTacticsMults(NewShipType, "ROTATION", 1.0, 1.10, 1.0)
 setTacticsMults(NewShipType, "ROTATIONACCEL", 1.0, 1.10, 1.0)
 setTacticsMults(NewShipType, "ROTATIONBRAKE", 1.0, 1.0, 1.0)
 setTacticsMults(NewShipType, "WEAPONACCURACY", 1.0, 1.0, 1.0)
-setTacticsMults(NewShipType, "WEAPONDAMAGE", 1.20, 1.0, 1.0)
+setTacticsMults(NewShipType, "WEAPONDAMAGE", 1.20, 0.8, 1.0)
 setTacticsMults(NewShipType, "BULLETSPEED", 1.10, 1.0, 1.0)
-setTacticsMults(NewShipType, "DAMAGEAPPLIED", 1.10, 0.90, 1.0)
+setTacticsMults(NewShipType, "DAMAGEAPPLIED", 1.10, 1.0, 1.0)
 setTacticsMults(NewShipType, "FIRERATE", 1.0, 1.25, 1.0)
+setSpeedvsAccuracyApplied(NewShipType, 100.0, 5.0, 120, 1.0, 250, 1.0, 388, 0.98, 535, 0.70)
 NewShipType.isTransferable=1
 NewShipType.formationSpacing=15
 NewShipType.defaultROE="Defensive"
@@ -82,16 +83,16 @@ setSupplyValue(NewShipType, "Fighter", 1.0)
 setSupplyValue(NewShipType, "DefenseFighters", 1.0)
 setSupplyValue(NewShipType, "LayoutFighter", 1.0)
 NewShipType.CombatFamily="Fighter_Special"
-NewShipType.fighterValue=8
+NewShipType.fighterValue=1.6
 NewShipType.corvetteValue=0
 NewShipType.frigateValue=0
 NewShipType.neutralValue=0
 NewShipType.antiFighterValue=0
 NewShipType.antiCorvetteValue=0
-NewShipType.antiFrigateValue=8
-NewShipType.totalValue=8
+NewShipType.antiFrigateValue=1.6
+NewShipType.totalValue=1.6
 NewShipType.buildCost=130
-NewShipType.buildTime=18
+NewShipType.buildTime=12
 NewShipType.buildPriorityOrder=50
 NewShipType.retaliationRange=5500
 NewShipType.retaliationDistanceFromGoal=160
@@ -135,6 +136,7 @@ NewShipType.dockTimeBeforeStart=0.5
 NewShipType.dockNrOfShipsInDockFormation=1
 NewShipType.dockFormation="dockline"
 NewShipType.queueFormation="n_delta"
+NewShipType.dontDockWithOtherRaceShips = getShipNum(NewShipType, "dontDockWithOtherRaceShips", 1)
 NewShipType.ignoreRaceWhenDocking=0
 addAbility(NewShipType,"CanLaunch");
 NewShipType.launchTimeBetweenTwoFormations=0.5
@@ -143,15 +145,16 @@ NewShipType.launchNrOfShipsInDockFormation=1
 NewShipType.launchFormation="n_delta"
 addAbility(NewShipType,"ParadeCommand",1);
 addAbility(NewShipType,"WaypointMove");
-addAbility(NewShipType,"CanAttack",1,1,1,0,0.35,1,"Munition,Torpedo,HeavyMissile,SmallMissile","Fighter_vs_Fighter");
-addAbility(NewShipType,"GuardCommand",1,3000,300);
+addAbility(NewShipType,"CanAttack",1,1,1,0,0.35,1,"SpaceMine,Torpedo,HeavyMissile,SmallMissile,Munition","flyround_defensefighter");
+addAbility(NewShipType,"GuardCommand",1,500,100);
 addAbility(NewShipType,"HyperspaceViaGateCommand",1,3,1,0.3);
 addAbility(NewShipType,"RetireAbility",1,0);
 addMagneticField(NewShipType,"MagneticField",600,100,"defenseField_generic",85,"defenseField_generic",100,"plasma_hit_spray_MagneticField","defensefield_sphere_spray_DF");
+AddShipMultiplier(NewShipType,"WeaponAccuracy","EnemyShipsWithinRadius","Linear",0.99,0.99,700);
 addCustomCode(NewShipType,"data:ship/Tai_DefenseFighter/Tai_DefenseFighter.lua","","","updateDefenseFighter","","DefenseFighter",1.25)
 LoadModel(NewShipType,1);
 StartShipWeaponConfig(NewShipType,"Tai_DefenseLaser","Weapon_Gun0","");
-addShield(NewShipType,"EMP",75,20);
+addShield(NewShipType,"EMP",65,20);
 NewShipType.battleScarCoverage=0
 NewShipType.sobDieTime=2
 NewShipType.sobSpecialDieTime=2

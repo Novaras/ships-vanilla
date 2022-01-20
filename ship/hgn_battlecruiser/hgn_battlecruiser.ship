@@ -118,6 +118,7 @@ NewShipType.preciseSelectionLimit=7500
 NewShipType.preciseATILimit=7000
 NewShipType.selectionPriority=75
 NewShipType.militaryUnit=1
+NewShipType.alternativeHyperspaceTime = 7
 NewShipType.SMHighlightDistMin=15000
 NewShipType.SMHighlightDistMax=25000
 addAbility(NewShipType,"MoveCommand",1,0);
@@ -135,7 +136,7 @@ NewShipType.launchTimeBetweenTwoFormations=1
 NewShipType.launchTimeBeforeStart=2
 NewShipType.launchNrOfShipsInDockFormation=1
 NewShipType.launchFormation="delta"
-addAbility(NewShipType,"ShipHold",1,0,50,"rallypoint","Fighter, Corvette",25,{Fighter="36"},{Corvette="75"});
+addAbility(NewShipType,"ShipHold",1,0,50,"rallypoint","Fighter, Corvette",25,{Fighter="3"},{Corvette="32"});
 addAbility(NewShipType,"ParadeCommand",1);
 addAbility(NewShipType,"WaypointMove");
 addAbility(NewShipType,"HyperSpaceCommand",0,2,500,1000,0,3);
@@ -155,7 +156,7 @@ addAbility(NewShipType,"CanBeSalvageCaptured",0,1,0,0,1,"SalCap");
 addAbility(NewShipType,"CanBeRepaired","RepCap");
 addAbility(NewShipType,"CloakAbility",0,2,2000,4000,3,100,1,1000); 
 addAbility(NewShipType,"RetireAbility",1,1);
-addAbility(NewShipType,"HyperspaceInhibitorAbility",0,12000);
+addAbility(NewShipType,"HyperspaceInhibitorAbility",0,10500);
 LoadModel(NewShipType,1);
 StartShipHardPointConfig(NewShipType,"Weapon IonBeam 1","Hardpoint_IonBeam1","Weapon","Innate","Damageable","Hgn_BattleCruiserIonBeamTurret","","","","","","","","");
 StartShipHardPointConfig(NewShipType,"Weapon IonBeam 2","Hardpoint_IonBeam2","Weapon","Innate","Damageable","Hgn_BattleCruiserIonBeamTurret","","","","","","","","");
@@ -179,10 +180,6 @@ SpawnSalvageOnDeath(NewShipType,"Slv_Chunk_Lrg03",1, 0.40,0,0,0, 0,0,0,50,0,0,0,
 SpawnSalvageOnDeath(NewShipType,"Slv_Chunk_Lrg04",1, 0.19,0,0,0, 50,40,-150,50,65,25,5,25,0,0,0,95,0,0,0,50);
 SpawnSalvageOnDeath(NewShipType,"Slv_Chunk_Lrg05",1, 0.13,0,0,0, 25,10,-100,30,35,75,62,75,0,0,0,80,0,0,0,50);
 SpawnSalvageOnDeath(NewShipType,"Slv_Chunk_Lrg01",1, 0.10,0,0,0, 60,30,150,25,35,125,65,75,0,0,0,60,0,0,0,50);
-SpawnSalvageOnDeath(NewShipType,"Slv_Chunk_Sml01",1, 0.06,0,0,0, 80,125,60,75,125,80,65,75,0,0,0,60,0,0,0,50);
-SpawnSalvageOnDeath(NewShipType,"Slv_Chunk_Sml03",1, 0.05,0,0,0, 60,95,200,50,15,200,20,125,0,0,0,60,0,0,0,50);
-SpawnSalvageOnDeath(NewShipType,"Slv_Chunk_Sml04",1, 0.04,0,0,0, 10,60,-300,25,35,80,65,75,0,0,0,60,0,0,0,50);
-SpawnSalvageOnDeath(NewShipType,"Slv_Chunk_Sml05",1, 0.03,0,0,0, 60,10,30,75,35,25,65,75,0,0,0,60,0,0,0,50);
 NewShipType.battleScarCoverage=4
 NewShipType.battleScarBudgetLow = 800
 NewShipType.battleScarBudgetNext = 1200
@@ -198,9 +195,9 @@ loadShipPatchList(NewShipType,"data:sound/sfx/ship/Hiigaran/Carrier/",0,"Engines
 loadLatchPointList(NewShipType,"SalCap","SalvagePoint1","SalvagePoint2","SalvagePoint3","SalvagePoint4","SalvagePoint5","SalvagePoint6");	
 loadLatchPointList(NewShipType,"CapCap","CapturePoint0","CapturePoint1","CapturePoint2","CapturePoint3");
 loadLatchPointList(NewShipType,"RepCap","RepairPoint0","RepairPoint1","RepairPoint2","RepairPoint3","RepairPoint4","RepairPoint5");														 
-NewShipType.minFalloffDamageDist=425
-NewShipType.maxFalloffDamageDist=425*1.5
-NewShipType.maxFalloffScuttleDamageDist=575*3
+NewShipType.minFalloffDamageDist=400
+NewShipType.maxFalloffDamageDist=400*1.5
+NewShipType.maxFalloffScuttleDamageDist=400*3
 NewShipType.explosiveScuttleDamageOnDeath=3725
 NewShipType.maxFalloffForce=500*10
 NewShipType.explosiveDamageOnDeath=745

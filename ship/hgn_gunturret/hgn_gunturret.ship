@@ -18,8 +18,8 @@ NewShipType.defaultROE="Defensive"
 NewShipType.defaultStance="Neutral"
 NewShipType.mass=getShipNum(NewShipType, "mass", 20)
 NewShipType.collisionMultiplier=1
-NewShipType.thrusterMaxSpeed=100
-NewShipType.mainEngineMaxSpeed=getShipNum(NewShipType, "mainEngineMaxSpeed", 100)
+NewShipType.thrusterMaxSpeed=125
+NewShipType.mainEngineMaxSpeed=125
 NewShipType.rotationMaxSpeed=120
 NewShipType.thrusterAccelTime=2.6*2
 NewShipType.thrusterBrakeTime=1
@@ -111,6 +111,7 @@ NewShipType.selectionLimit=150000
 NewShipType.preciseATILimit=0
 NewShipType.selectionPriority=75
 NewShipType.militaryUnit=1
+NewShipType.alternativeHyperspaceTime = 7
 addAbility(NewShipType,"MoveCommand",1,1);
 NewShipType.ignoreRaceWhenDocking=0
 addAbility(NewShipType,"CanLaunch");

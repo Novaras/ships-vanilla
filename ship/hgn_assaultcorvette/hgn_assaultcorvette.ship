@@ -16,9 +16,9 @@ setTacticsMults(NewShipType, "ROTATION", 1.0, 1.10, 1.0)
 setTacticsMults(NewShipType, "ROTATIONACCEL", 1.0, 1.10, 1.0)
 setTacticsMults(NewShipType, "ROTATIONBRAKE", 1.0, 1.0, 1.0)
 setTacticsMults(NewShipType, "WEAPONACCURACY", 1.0, 1.0, 1.0)
-setTacticsMults(NewShipType, "WEAPONDAMAGE", 1.20, 1.0, 1.0)
+setTacticsMults(NewShipType, "WEAPONDAMAGE", 1.20, 0.8, 1.0)
 setTacticsMults(NewShipType, "BULLETSPEED", 1.10, 1.0, 1.0)
-setTacticsMults(NewShipType, "DAMAGEAPPLIED", 1.10, 0.90, 1.0)
+setTacticsMults(NewShipType, "DAMAGEAPPLIED", 1.10, 1.0, 1.0)
 setTacticsMults(NewShipType, "FIRERATE", 1.0, 1.25, 1.0)
 setSpeedvsAccuracyApplied(NewShipType, 50.0, 5.0, 180, 1.0, 250, 1.0, 312, 0.90, 319, 0.80)
 NewShipType.isTransferable=1
@@ -30,7 +30,7 @@ NewShipType.defaultROE="Defensive"
 NewShipType.defaultStance="Aggressive"
 NewShipType.holdSlots=3
 NewShipType.mass=15
-NewShipType.collisionMultiplier=1
+NewShipType.collisionMultiplier=0.8
 NewShipType.thrusterMaxSpeed=232*0.9
 NewShipType.mainEngineMaxSpeed=232
 NewShipType.rotationMaxSpeed=172*0.95
@@ -80,13 +80,13 @@ setSupplyValue(NewShipType, "Corvette", 3.0)
 setSupplyValue(NewShipType, "LayoutCorvette", 3.0)
 NewShipType.CombatFamily="Corvette_Gunship"
 NewShipType.fighterValue=0
-NewShipType.corvetteValue=10
+NewShipType.corvetteValue=3.33
 NewShipType.frigateValue=0
 NewShipType.neutralValue=0
-NewShipType.antiFighterValue=10
+NewShipType.antiFighterValue=3.33
 NewShipType.antiCorvetteValue=0
 NewShipType.antiFrigateValue=0
-NewShipType.totalValue=10
+NewShipType.totalValue=3.33
 NewShipType.buildCost=625
 NewShipType.buildTime=45
 NewShipType.buildPriorityOrder=10
@@ -125,6 +125,7 @@ NewShipType.selectionLimit=150000
 NewShipType.preciseATILimit=0
 NewShipType.selectionPriority=75
 NewShipType.militaryUnit=1
+NewShipType.alternativeHyperspaceTime = 7
 addAbility(NewShipType,"MoveCommand",1,0);
 addAbility(NewShipType,"CanDock",1,1);
 NewShipType.dockTimeBetweenTwoFormations=0.5
@@ -133,6 +134,7 @@ NewShipType.dockNrOfShipsInDockFormation=1
 NewShipType.dockFormation="dockline"
 NewShipType.queueFormation="dockline"
 NewShipType.strikeGroupRadius=25
+NewShipType.dontDockWithOtherRaceShips = getShipNum(NewShipType, "dontDockWithOtherRaceShips", 1)
 NewShipType.ignoreRaceWhenDocking=0
 addAbility(NewShipType,"CanLaunch");
 NewShipType.launchTimeBetweenTwoFormations=0.5
@@ -153,10 +155,11 @@ addAbility(NewShipType,"CanAttack",1,1,1,0,0.35,1.5,"Fighter, Fighter_hw1, Corve
 addAbility(NewShipType,"GuardCommand",1,3000,500);
 addAbility(NewShipType,"HyperspaceViaGateCommand",1,3,1,0.3);
 addAbility(NewShipType,"RetireAbility",1,0);
+addCustomCode(NewShipType, "data:ship/Hgn_AssaultCorvette/Hgn_AssaultCorvette.lua", "", "", "Update_Hgn_Assault_Corvette", "", "Hgn_AssaultCorvette", 1)
 LoadModel(NewShipType,1);
 StartShipWeaponConfig(NewShipType,"Hgn_VulcanKineticTurret","Weapon_TurretTop","Fire_Top");
 StartShipWeaponConfig(NewShipType,"Hgn_VulcanKineticTurret","Weapon_TurretBottom","Fire_Bottom");
-addShield(NewShipType,"EMP",75,20);
+addShield(NewShipType,"EMP",110,20);
 NewShipType.battleScarCoverage=1
 NewShipType.battleScarBudgetLow = 400
 NewShipType.battleScarBudgetNext = 600

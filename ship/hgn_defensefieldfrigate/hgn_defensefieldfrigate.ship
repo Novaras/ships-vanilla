@@ -1,7 +1,7 @@
 NewShipType = StartShipConfig()
 NewShipType.displayedName="$1526"
 NewShipType.sobDescription="$1527"
-NewShipType.maxhealth=getShipNum(NewShipType, "maxhealth", 20000)
+NewShipType.maxhealth=getShipNum(NewShipType, "maxhealth", 22000)
 NewShipType.regentime=1100
 NewShipType.minRegenTime=1100
 NewShipType.sideArmourDamage = getShipNum(NewShipType, "sideArmourDamage", 1.2)
@@ -16,15 +16,15 @@ NewShipType.defaultROE="Defensive"
 NewShipType.defaultStance="Neutral"
 NewShipType.mass=100
 NewShipType.collisionMultiplier=1
-NewShipType.thrusterMaxSpeed=177
-NewShipType.mainEngineMaxSpeed=177
-NewShipType.rotationMaxSpeed=22
+NewShipType.thrusterMaxSpeed=220
+NewShipType.mainEngineMaxSpeed=220
+NewShipType.rotationMaxSpeed=35
 NewShipType.thrusterAccelTime=7
 NewShipType.thrusterBrakeTime=2
 NewShipType.mainEngineAccelTime=8
 NewShipType.mainEngineBrakeTime=2
-NewShipType.rotationAccelTime=0.75
-NewShipType.rotationBrakeTime=0.4
+NewShipType.rotationAccelTime=0.4
+NewShipType.rotationBrakeTime=0.2
 NewShipType.thrusterUsage=0.5
 NewShipType.accelerationAngle=40
 NewShipType.mirrorAngle=0
@@ -78,7 +78,7 @@ NewShipType.totalValue=10
 NewShipType.buildCost=1000
 NewShipType.buildTime=60
 NewShipType.buildPriorityOrder=25
-NewShipType.retaliationRange=5500
+NewShipType.retaliationRange=2000
 NewShipType.retaliationDistanceFromGoal=160
 NewShipType.visualRange=1000
 NewShipType.prmSensorRange=5000
@@ -115,6 +115,7 @@ NewShipType.selectionLimit=150000
 NewShipType.preciseATILimit=0
 NewShipType.selectionPriority=75
 NewShipType.militaryUnit=1
+NewShipType.alternativeHyperspaceTime = 7
 addAbility(NewShipType,"MoveCommand",1,0);
 addAbility(NewShipType,"CanDock",1,0);
 NewShipType.dockTimeBetweenTwoFormations=1
@@ -139,12 +140,13 @@ addAbility(NewShipType,"HyperspaceViaGateCommand",1,3,1,0.3);
 addAbility(NewShipType,"CanBeCaptured",45,0.5,"CapCap");
 addAbility(NewShipType,"CanBeSalvageCaptured",0,1,0,0,1,"SalCap");
 addAbility(NewShipType,"CanBeRepaired","RepCap");
-addAbility(NewShipType,"RetireAbility",1,1);
+addAbility(NewShipType,"RetireAbility",1,0);
 addAbility(NewShipType,"DefenseFieldAbility",1,0,1200,200,200,0.7,0.6,0,"defensefield_sphere_spray");
 addAbility(NewShipType,"DefenseFieldShieldAbility",0,1200,0,0);
+addCustomCode(NewShipType,"data:ship/Hgn_DefenseFieldFrigate/Hgn_DefenseFieldFrigate.lua","","","Update_Hgn_DefenseFieldFrigate","","Hgn_DefenseFieldFrigate",4)
 LoadModel(NewShipType,1);
 StartShipHardPointConfig(NewShipType,"Weapon_Top","Hardpoint_Top","Weapon","Innate","Ship","Hgn_VulcanKineticTurretHeavy","","","","","","","","");
-addShield(NewShipType,"EMP",10000,20);
+addShield(NewShipType,"EMP",310,20);
 AddShipAbility(NewShipType,"DefenseField",1,"ThisShipOnly",0);
 NewShipType.battleScarCoverage=2
 NewShipType.battleScarBudgetLow = 400
@@ -164,9 +166,9 @@ loadLatchPointList(NewShipType,"RepCap","RepairPoint0","RepairPoint1");
 NewShipType.minFalloffDamageDist=100
 NewShipType.maxFalloffDamageDist=100*2
 NewShipType.maxFalloffScuttleDamageDist=100*4
-NewShipType.explosiveScuttleDamageOnDeath=1050
+NewShipType.explosiveScuttleDamageOnDeath=130
 NewShipType.maxFalloffForce=500*10
-NewShipType.explosiveDamageOnDeath=210
+NewShipType.explosiveDamageOnDeath=50
 NewShipType.radiusDamageEvadeMod=1.1													 
 NewShipType.hideNormalAttackUICooldown=1	
 NewShipType.strikeGroupSpeed=5000

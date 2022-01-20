@@ -16,9 +16,9 @@ setTacticsMults(NewShipType, "ROTATION", 1.0, 1.10, 1.0)
 setTacticsMults(NewShipType, "ROTATIONACCEL", 1.0, 1.10, 1.0)
 setTacticsMults(NewShipType, "ROTATIONBRAKE", 1.0, 1.0, 1.0)
 setTacticsMults(NewShipType, "WEAPONACCURACY", 1.0, 1.0, 1.0)
-setTacticsMults(NewShipType, "WEAPONDAMAGE", 1.20, 1.0, 1.0)
+setTacticsMults(NewShipType, "WEAPONDAMAGE", 1.20, 0.8, 1.0)
 setTacticsMults(NewShipType, "BULLETSPEED", 1.10, 1.0, 1.0)
-setTacticsMults(NewShipType, "DAMAGEAPPLIED", 1.10, 0.90, 1.0)
+setTacticsMults(NewShipType, "DAMAGEAPPLIED", 1.10, 1.0, 1.0)
 setTacticsMults(NewShipType, "FIRERATE", 1.0, 1.25, 1.0)
 setSpeedvsAccuracyApplied(NewShipType, 10.0, 1.5, 120, 1.0, 250, 1.0, 388, 0.58, 535, 0.40)
 NewShipType.isTransferable=1
@@ -31,8 +31,8 @@ NewShipType.defaultStance="Aggressive"
 NewShipType.holdSlots=1
 NewShipType.mass=10
 NewShipType.collisionMultiplier=1
-NewShipType.thrusterMaxSpeed=279*0.77
-NewShipType.mainEngineMaxSpeed=279
+NewShipType.thrusterMaxSpeed=300*0.8
+NewShipType.mainEngineMaxSpeed=300
 NewShipType.rotationMaxSpeed=105*0.92
 NewShipType.thrusterAccelTime=3*1.15
 NewShipType.thrusterBrakeTime=1*1.1
@@ -84,14 +84,14 @@ setSupplyValue(NewShipType, "Fighter", 5.0)
 setSupplyValue(NewShipType, "Bomber", 5.0)
 setSupplyValue(NewShipType, "LayoutFighter", 5.0)
 NewShipType.CombatFamily="Fighter_Bomber"
-NewShipType.fighterValue=8
+NewShipType.fighterValue=1.6
 NewShipType.corvetteValue=0
 NewShipType.frigateValue=0
 NewShipType.neutralValue=0
 NewShipType.antiFighterValue=0
 NewShipType.antiCorvetteValue=0
-NewShipType.antiFrigateValue=8
-NewShipType.totalValue=8
+NewShipType.antiFrigateValue=1.6
+NewShipType.totalValue=1.6
 NewShipType.buildCost=550
 NewShipType.buildTime=40
 NewShipType.buildPriorityOrder=30
@@ -132,6 +132,7 @@ NewShipType.selectionLimit=150000
 NewShipType.preciseATILimit=0
 NewShipType.selectionPriority=75
 NewShipType.militaryUnit=1
+NewShipType.alternativeHyperspaceTime = 7
 addAbility(NewShipType,"MoveCommand",1,0);
 addAbility(NewShipType,"CanDock",1,1);
 NewShipType.dockTimeBetweenTwoFormations=0.5
@@ -139,6 +140,7 @@ NewShipType.dockTimeBeforeStart=0.5
 NewShipType.dockNrOfShipsInDockFormation=1
 NewShipType.dockFormation="dockline"
 NewShipType.queueFormation="n_delta"
+NewShipType.dontDockWithOtherRaceShips = getShipNum(NewShipType, "dontDockWithOtherRaceShips", 1)
 NewShipType.ignoreRaceWhenDocking=0
 addAbility(NewShipType,"CanLaunch");
 NewShipType.launchTimeBetweenTwoFormations=0.5
@@ -161,6 +163,7 @@ addAbility(NewShipType,"CanAttack",1,3,1,0,0.35,1,"Capturer, Frigate, SmallCapit
 addAbility(NewShipType,"GuardCommand",1,3000,500);
 addAbility(NewShipType,"HyperspaceViaGateCommand",1,3,1,0.3);
 addAbility(NewShipType,"RetireAbility",1,0);
+addCustomCode(NewShipType, "data:ship/Hgn_AttackBomber/Hgn_AttackBomber.lua", "", "", "Update_Hgn_AttackBomber", "", "Hgn_AttackBomber", 1)
 LoadModel(NewShipType,1);
 StartShipWeaponConfig(NewShipType,"Hgn_BombLauncher","Weapon_L","Weapon_L");
 StartShipWeaponConfig(NewShipType,"Hgn_BombLauncher","Weapon_R","Weapon_R");
@@ -168,7 +171,7 @@ StartShipWeaponConfig(NewShipType,"Hgn_AntiShipBombLauncher","Weapon_L","Weapon_
 StartShipWeaponConfig(NewShipType,"Hgn_AntiShipBombLauncher","Weapon_R","Weapon_R");
 StartShipWeaponConfig(NewShipType,"Hgn_AntiSubSystemBombLauncher","Weapon_L","Weapon_L");
 StartShipWeaponConfig(NewShipType,"Hgn_AntiSubSystemBombLauncher","Weapon_R","Weapon_R");
-addShield(NewShipType,"EMP",75,20);
+addShield(NewShipType,"EMP",110,20);
 NewShipType.battleScarCoverage=0
 NewShipType.sobDieTime=2
 NewShipType.sobSpecialDieTime=2

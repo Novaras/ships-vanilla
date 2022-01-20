@@ -1,7 +1,7 @@
 NewShipType = StartShipConfig()
 NewShipType.displayedName="$10040"
 NewShipType.sobDescription="$10041"
-NewShipType.maxhealth=getShipNum(NewShipType, "maxhealth", 105000)
+NewShipType.maxhealth=getShipNum(NewShipType, "maxhealth", 120000)
 NewShipType.regentime=2000
 NewShipType.minRegenTime=2000
 NewShipType.sideArmourDamage = getShipNum(NewShipType, "sideArmourDamage", 1.0)
@@ -82,8 +82,8 @@ NewShipType.antiFighterValue=5
 NewShipType.antiCorvetteValue=0
 NewShipType.antiFrigateValue=0
 NewShipType.totalValue=15
-NewShipType.buildCost=3000
-NewShipType.buildTime=210
+NewShipType.buildCost=3500
+NewShipType.buildTime=130
 NewShipType.buildPriorityOrder=40
 NewShipType.retaliationRange=6500
 NewShipType.retaliationDistanceFromGoal=160
@@ -140,29 +140,33 @@ NewShipType.launchTimeBeforeStart=2
 NewShipType.launchNrOfShipsInDockFormation=1
 NewShipType.launchFormation="delta"
 NewShipType.strikeGroupRadius=350
-addAbility(NewShipType,"ShipHold",1,60,100,"rallypoint","Fighter, Corvette, Utility",200,
+addAbility(NewShipType,"ShipHold",1,60,100,"rallypoint","Fighter, Corvette, Utility",100,
 {Fighter="36"},
-{Corvette="75"});
+{Corvette="340"},
+{Utility="175"});
 addAbility(NewShipType,"ParadeCommand",1);
 addAbility(NewShipType,"WaypointMove");
 addAbility(NewShipType,"HyperSpaceCommand",1,1.1,400,1100,0,4);
-addAbility(NewShipType,"CanAttack",1,1,0,0,0.35,1,"Fighter, Fighter_hw1, Corvette, Corvette_hw1, Frigate,  SmallCapitalShip, BigCapitalShip, Utility","JustShoot");
+addAbility(NewShipType,"CanAttack",1,1,0,0,0.35,1,"Fighter_hw1, Fighter, Swarmer, Corvette_hw1, Corvette, Frigate, SmallCapitalShip, BigCapitalShip, Utility","JustShoot");
 addAbility(NewShipType,"GuardCommand",1,3000,1000);
 addAbility(NewShipType,"CanBuildShips",1,"Fighter_Tai, Corvette_Tai, Frigate_Tai, Resource_Tai, NonCombat_Tai","Fighter, Corvette, Frigate, Resource, NonCombat");
 addAbility(NewShipType,"CanBeCaptured",160,0.1,"CapCap");
 addAbility(NewShipType,"CanBeSalvageCaptured",0,1,0,0,1,"SalCap");
 addAbility(NewShipType,"CanBeRepaired","RepCap");
-addAbility(NewShipType,"RetireAbility",1,1);
+addAbility(NewShipType,"RetireAbility",1,0);
 NewShipType.noCombatGrouping=1
-addCustomCode(NewShipType,"data:Ship/Tai_Carrier/Tai_Carrier.lua","Load_Tai_Carrier","Create_Tai_Carrier","Update_Tai_Carrier","","Tai_Carrier",10)
+addCustomCode(NewShipType,"data:Ship/Tai_Carrier/Tai_Carrier.lua","Load_Tai_Carrier","Create_Tai_Carrier","Update_Tai_Carrier","","Tai_Carrier",2)
 LoadModel(NewShipType,1);
-StartShipWeaponConfig(NewShipType,"HW1_MothershipGun","Weapon_Gun0","Weapon_Gun0");
-StartShipWeaponConfig(NewShipType,"HW1_MothershipGun","Weapon_Gun1","Weapon_Gun1");
-StartShipWeaponConfig(NewShipType,"HW1_MothershipGun","Weapon_Gun2","Weapon_Gun2");
-StartShipWeaponConfig(NewShipType,"HW1_MothershipGun","Weapon_Gun3","Weapon_Gun3");
+StartShipWeaponConfig(NewShipType,"HW1_MothershipGun2","Weapon_Gun0","Weapon_Gun0");
+StartShipWeaponConfig(NewShipType,"HW1_MothershipGun2","Weapon_Gun1","Weapon_Gun1");
+StartShipWeaponConfig(NewShipType,"HW1_MothershipGun2","Weapon_Gun2","Weapon_Gun2");
+StartShipWeaponConfig(NewShipType,"HW1_MothershipGun2","Weapon_Gun3","Weapon_Gun3");
 addShield(NewShipType,"EMP",10000,20);
 StartShipHardPointConfig(NewShipType,"Engine","Hardpoint_Engine","System","Innate","Damageable","Tai_CarrierEngine","","","","","","","","");
 StartShipHardPointConfig(NewShipType,"Resource","Hardpoint_Resource","System","Innate","Damageable","Tai_CarrierResource","","","","","","","","");
+StartShipHardPointConfig(NewShipType,"Fighter Production","Hardpoint_Resource","System","Production","Indestructible","","hw1_production_fighter","","","","","","","");
+StartShipHardPointConfig(NewShipType,"Corvette Production","Hardpoint_Resource","System","Production","Indestructible","","hw1_production_corvette","","","","","","","");
+StartShipHardPointConfig(NewShipType,"Frigate Production","Hardpoint_Resource","System","Production","Indestructible","","hw1_production_frigate","","","","","","","");
 SpawnSalvageOnDeath(NewShipType,"Slv_Chunk_Lrg03",1, 0.40,0,0,0, 0,0,0,50,0,0,0,200,0,0,0,50,0,0,0,50);
 SpawnSalvageOnDeath(NewShipType,"Slv_Chunk_Lrg02",1, 0.19,0,0,0, 30,-20,200,25,300,150,85,50,0,0,0,85,0,0,0,50);
 SpawnSalvageOnDeath(NewShipType,"Slv_Chunk_Lrg05",1, 0.13,0,0,0, 25,10,-100,30,35,75,62,75,0,0,0,80,0,0,0,50);
