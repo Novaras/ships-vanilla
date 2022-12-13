@@ -77,8 +77,8 @@ NewShipType.DisplayFamily="Corvette"
 NewShipType.AutoFormationFamily="Corvette"
 NewShipType.CollisionFamily="Small"
 NewShipType.ArmourFamily=getShipStr(NewShipType, "ArmourFamily", "LightArmour")
-setSupplyValue(NewShipType, "Corvette", 3.0)
-setSupplyValue(NewShipType, "LayoutCorvette", 3.0)
+setSupplyValue(NewShipType, "Corvette", 4.0)
+setSupplyValue(NewShipType, "LayoutCorvette", 4.0)
 NewShipType.CombatFamily="Corvette_Missile"
 NewShipType.fighterValue=0
 NewShipType.corvetteValue=10

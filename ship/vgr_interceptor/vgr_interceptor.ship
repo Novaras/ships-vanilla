@@ -84,9 +84,9 @@ NewShipType.DisplayFamily="Fighter"
 NewShipType.AutoFormationFamily="Fighter"
 NewShipType.CollisionFamily="Small"
 NewShipType.ArmourFamily=getShipStr(NewShipType, "ArmourFamily", "Unarmoured")
-setSupplyValue(NewShipType, "Fighter", 5.0)
-setSupplyValue(NewShipType, "Interceptor", 5.0)
-setSupplyValue(NewShipType, "LayoutFighter", 5.0)
+setSupplyValue(NewShipType, "Fighter", 7.0)
+setSupplyValue(NewShipType, "Interceptor", 7.0)
+setSupplyValue(NewShipType, "LayoutFighter", 7.0)
 NewShipType.fighterValue=8
 NewShipType.corvetteValue=0
 NewShipType.frigateValue=0
